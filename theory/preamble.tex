@@ -1,0 +1,178 @@
+% ============================================================
+% PACKAGES — Theory Template
+% (Learning Theory / Computational Geometry)
+% ============================================================
+
+% --- Math ---
+\usepackage{amsfonts}   % \mathbb, \mathfrak fonts
+\usepackage{amsmath}    % Core math environments: align, equation, gather, etc.
+\usepackage{amssymb}    % Extra symbols: \triangleq, \square, \lesssim, etc.
+\usepackage{amsthm}     % Theorem/lemma/definition environments
+\usepackage{mathtools}  % Extends amsmath: \coloneqq, \DeclarePairedDelimiter, etc.
+
+% --- Layout & Typography ---
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{setspace}
+
+% --- Tables ---
+\usepackage{booktabs}   % \toprule, \midrule, \bottomrule
+\usepackage{tabularx}   % Auto-width X columns
+
+% --- Figures ---
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+% --- Drawing (geometric constructions, proof diagrams) ---
+\usepackage{tikz}
+\usetikzlibrary{%
+  positioning, fit, calc, arrows.meta,
+  decorations.pathreplacing,       % braces and annotations
+  patterns, shapes.geometric,      % filled regions, polygons
+  backgrounds                      % framed figures
+}
+
+% --- Algorithms ---
+% Usage: \begin{algorithm2e}[H] \KwIn{...} \KwOut{...} ... \end{algorithm2e}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+% --- Color ---
+\usepackage{xcolor}
+
+% --- References (hyperref second-to-last, cleveref last) ---
+\usepackage[numbers]{natbib}  % \citep{key}, \citet{key}
+\usepackage{hyperref}         % Clickable cross-refs and PDF metadata
+\usepackage{cleveref}         % \cref{thm:main} -> "Theorem 1"; load AFTER hyperref
+
+% ============================================================
+% THEOREM ENVIRONMENTS
+% Theorems, lemmas, and claims share one counter so that
+% Theorem 1, Lemma 2, Claim 3 are never ambiguous.
+% Definitions, examples, remarks have independent counters.
+% ============================================================
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{problem}{Problem}
+
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem{assumption}{Assumption}
+\newtheorem{question}{Question}
+
+% ============================================================
+% MATH MACROS — General
+% ============================================================
+
+% --- Number sets ---
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% --- Probability & Statistics ---
+\newcommand{\E}{\mathbb{E}}             % Expectation: \E[X], \E_{x \sim p}[f(x)]
+\newcommand{\Prob}{\mathbb{P}}          % Probability: \Prob(A)
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+
+% --- Paired delimiters (star variant auto-scales: \norm*{\frac{a}{b}}) ---
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\inner}{\langle}{\rangle}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\set}{\{}{\}}           % \set{x : f(x) > 0}
+\DeclarePairedDelimiter{\card}{\lvert}{\rvert}  % \card{S} — cardinality
+
+% --- Common operators ---
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\conv}{conv}   % Convex hull: \conv(S)
+\DeclareMathOperator{\diam}{diam}   % Diameter: \diam(S)
+\DeclareMathOperator{\vol}{vol}     % Volume: \vol(K)
+\DeclareMathOperator{\proj}{proj}   % Projection: \proj_C(x)
+\DeclareMathOperator{\dist}{dist}   % Distance: \dist(x, C)
+\DeclareMathOperator{\spn}{span}    % Span
+
+% ============================================================
+% MATH MACROS — Learning Theory
+% ============================================================
+
+% --- Asymptotic notation ---
+\newcommand{\Oh}{\mathcal{O}}               % Big-O:     \Oh(n \log n)
+\newcommand{\oh}{o}                         % Little-o:  \oh(n)
+\newcommand{\Og}{\Omega}                    % Big-Omega: \Og(n)
+\newcommand{\Th}{\Theta}                    % Theta:     \Th(n)
+\newcommand{\Oht}{\widetilde{\mathcal{O}}}  % Soft-O (hides log factors): \Oht(n)
+
+% --- Sample / query complexity ---
+\newcommand{\VC}{\mathrm{VC}}               % VC dimension:          \VC(\cH)
+\DeclareMathOperator{\Rdim}{\mathfrak{R}}   % Rademacher complexity: \Rdim_n(\cH)
+\newcommand{\cN}{\mathcal{N}}               % Covering number:       \cN(\cH,\eps,d)
+
+% --- Spaces and classes ---
+\newcommand{\cH}{\mathcal{H}}   % Hypothesis class
+\newcommand{\cF}{\mathcal{F}}   % Function class
+\newcommand{\cX}{\mathcal{X}}   % Input space
+\newcommand{\cY}{\mathcal{Y}}   % Output space
+\newcommand{\cD}{\mathcal{D}}   % Distribution
+\newcommand{\cA}{\mathcal{A}}   % Algorithm
+\newcommand{\cS}{\mathcal{S}}   % Sample
+\newcommand{\cK}{\mathcal{K}}   % Convex body (geometry)
+
+% --- Risk ---
+\newcommand{\Risk}{\mathrm{R}}      % True risk:     \Risk(h)
+\newcommand{\hRisk}{\hat{\mathrm{R}}} % Empirical risk: \hRisk_n(h)
+
+% --- Information theory ---
+\DeclareMathOperator{\KL}{KL}   % KL divergence:   \KL(p \| q)
+\DeclareMathOperator{\MI}{I}    % Mutual information: \MI(X;Y)
+\DeclareMathOperator{\Ent}{H}   % Entropy:           \Ent(X)
+
+% --- Computational complexity classes ---
+\newcommand{\Pcl}{\mathsf{P}}
+\newcommand{\NP}{\mathsf{NP}}
+\newcommand{\coNP}{\mathsf{coNP}}
+\newcommand{\PSPACE}{\mathsf{PSPACE}}
+\newcommand{\BPP}{\mathsf{BPP}}
+
+% ============================================================
+% MATH MACROS — Misc shorthands
+% ============================================================
+
+\newcommand{\eps}{\varepsilon}                              % \eps  (shorter than \varepsilon)
+\newcommand{\defeq}{\coloneqq}                             % :=
+\newcommand{\Ind}[1]{\mathbf{1}\!\left[#1\right]}          % Indicator: \Ind{x > 0}
+\newcommand{\iid}{\overset{\mathrm{iid}}{\sim}}            % X_1,\ldots,X_n \iid \cD
+% \lesssim is already provided by amssymb — no redefinition needed
+\newcommand{\poly}{\mathrm{poly}}                          % polynomial: \poly(n)
+\newcommand{\polylog}{\mathrm{polylog}}                    % polylogarithmic
+
+% ============================================================
+% UTILITY MACROS
+% ============================================================
+
+% Blue highlight for key equations or claims
+\newcommand{\highlight}[1]{\textcolor{blue}{#1}}
+
+% Red bold TODO annotation
+\newcommand{\TODO}[1]{\textcolor{red}{\textbf{TODO: #1}}}
+
+% Inline proof sketch paragraph (italic, no QED box)
+% Usage: \proofidea{The key insight is a reduction to the 1D case via ...}
+\newcommand{\proofidea}[1]{%
+  \smallskip\noindent\textit{Proof idea.}\ #1\smallskip}

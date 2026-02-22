@@ -1,0 +1,187 @@
+\documentclass{article}
+\input{preamble}
+
+% ============================================================
+% PAPER METADATA — edit before writing
+% ============================================================
+\title{%
+  \textbf{Paper Title} \\[0.4em]
+}
+\author{%
+  Author One, Author Two \\[0.2em]
+  Conference/Journal Name, Year \\[0.2em]
+}
+\date{\today}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+\maketitle
+
+% Quick-reference header — fill in before writing the summary
+\noindent
+\textbf{TL;DR:} One-sentence summary of the core result and its significance. \\[0.2em]
+\medskip\hrule\bigskip
+
+% ============================================================
+\section{Formal Setting}
+% ============================================================
+% Define every object precisely before stating results.
+% Notation established here should be used consistently throughout.
+%
+% Questions to answer:
+%   - What is the input space \cX, label/output space \cY?
+%   - What is the hypothesis class \cH or function class \cF?
+%   - What is the learning model (PAC, online, SQ, query complexity)?
+%   - For geometry: what are the objects (polytopes, point sets)?
+%   - What is the loss, the measure of success, the computational model?
+
+\paragraph{Objects.}
+% e.g., "Let \cH \subseteq \{0,1\}^{\cX} be a hypothesis class over \cX \subseteq \R^d."
+
+\paragraph{Goal.}
+% What quantity is being bounded or computed?
+% e.g., "Find the smallest sample size $n$ such that an algorithm outputs
+%         $h \in \cH$ with $\Risk(h) \le \eps$ with probability $\ge 1-\delta$."
+
+
+% ============================================================
+\section{Main Results}
+% ============================================================
+% State the central theorems with full quantifiers.
+% Use \highlight{} for the key bound or conclusion.
+% Always distinguish upper bounds from lower bounds.
+
+\begin{theorem}[\TODO{paraphrase result title here}]
+  \label{thm:main}
+  \TODO{State theorem precisely, including all quantifiers and dependencies on parameters.}
+\end{theorem}
+
+\noindent
+\highlight{Takeaway:} \TODO{One sentence explaining what this bound means concretely.}
+
+\bigskip
+
+% State the matching lower bound if the paper proves one:
+\begin{theorem}[Lower bound]
+  \label{thm:lb}
+  \TODO{State lower bound. Note whether it matches the upper bound up to constants / log factors.}
+\end{theorem}
+
+% ---- Comparison table (uncomment and fill in) ----
+% \begin{table}[h]
+%   \centering
+%   \caption{Comparison of upper bounds. $d$ = dimension, $n$ = sample size.}
+%   \label{tab:comparison}
+%   \begin{tabular}{llll}
+%     \toprule
+%     \textbf{Reference} & \textbf{Bound} & \textbf{Model} & \textbf{Assumption} \\
+%     \midrule
+%     \citet{prior1}   & $\Oh(d / \eps^2)$       & PAC & Realizable \\
+%     \citet{prior2}   & $\Oh(d \log(1/\eps) / \eps)$ & PAC & Agnostic \\
+%     \textbf{This paper} & $\highlight{\Oh(...)}$ & ...  & ... \\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+
+
+% ============================================================
+\section{Key Assumptions}
+% ============================================================
+% List assumptions explicitly, with one \begin{assumption}...\end{assumption} each.
+% For each: (i) is it standard or non-standard? (ii) is it necessary or just convenient?
+
+\begin{assumption}
+  \label{asm:1}
+  \TODO{e.g., Realizability: $\exists\, h^* \in \cH$ such that $\Risk(h^*) = 0$.}
+\end{assumption}
+
+\noindent\textit{Necessity.} \TODO{Is there a lower bound showing this assumption cannot be dropped?}
+
+\begin{assumption}
+  \label{asm:2}
+  \TODO{e.g., Bounded hypothesis class: $\VC(\cH) = d < \infty$.}
+\end{assumption}
+
+
+% ============================================================
+\section{Proof Techniques}
+% ============================================================
+% Describe the proof architecture at a high level.
+% Name the tools used (VC theory, Rademacher, chaining, primal-dual,
+% net arguments, dimension reduction, probabilistic method, ...).
+% Quote the key intermediate lemma and sketch why it is true.
+
+\paragraph{High-level strategy.}
+% e.g., "Reduce to a 1D problem via a random projection argument,
+%         then apply a net argument over an \eps-cover of ..."
+
+\paragraph{Key intermediate result.}
+
+\begin{lemma}
+  \label{lem:key}
+  \TODO{State the pivotal lemma that drives the main proof.}
+\end{lemma}
+
+\proofidea{\TODO{Informal argument for the lemma.}}
+
+\paragraph{Completing the proof of \cref{thm:main}.}
+% How does the key lemma imply the main theorem?
+
+
+% ============================================================
+\section{Comparison to Prior Work}
+% ============================================================
+% How does this result improve on, generalize, or differ from prior work?
+% Is the bound tight? Does it match the lower bound?
+% What was the bottleneck in the previous best approach?
+
+\begin{itemize}
+  \item \textbf{Improvement over \citet{}:} \TODO{what changes and by how much?}
+  \item \textbf{New technique vs.\ prior art:} \TODO{what is the novel proof ingredient?}
+\end{itemize}
+
+
+% ============================================================
+\section{Limitations \& Open Questions}
+% ============================================================
+
+\paragraph{Limitations.}
+% Which assumptions are restrictive?
+% Are there known settings where the result does not extend?
+
+\begin{itemize}
+  \item \TODO{e.g., Requires realizability — does not apply to the agnostic setting.}
+\end{itemize}
+
+\paragraph{Open questions.}
+
+\begin{question}
+  \label{q:1}
+  \TODO{Most natural open problem left by this work.}
+\end{question}
+
+\begin{question}
+  \label{q:2}
+  \TODO{Second open question.}
+\end{question}
+
+
+% ============================================================
+\section{Personal Notes}
+% ============================================================
+% Connections to your own research or other papers you know.
+% Intuitions, analogies, or things you want to remember.
+% Questions to ask if you meet the authors.
+
+
+% ============================================================
+% REFERENCES
+% Add entries to refs.bib and cite with \citep{key} or \citet{key}.
+% Example: "As shown by \citet{example2024}, ..."
+% ============================================================
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\end{document}

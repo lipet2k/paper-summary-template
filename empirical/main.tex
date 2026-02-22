@@ -1,0 +1,205 @@
+\documentclass{article}
+\input{preamble}
+
+% ============================================================
+% PAPER METADATA — edit before writing
+% ============================================================
+\title{%
+  \textbf{Paper Title} \\[0.4em]
+}
+\author{%
+  Author One, Author Two \\[0.2em]
+  Conference/Journal Name, Year \\[0.2em]
+}
+\date{\today}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+\maketitle
+
+% Quick-reference header — fill in before writing the body
+\noindent
+\textbf{TL;DR:} One-sentence summary of the method and headline result. \\[0.2em]
+\medskip\hrule\bigskip
+
+
+% ============================================================
+\section{Motivation \& Problem}
+% ============================================================
+% What practical or scientific gap does this paper address?
+% Why does the existing approach fall short?
+% What is the research question in concrete, measurable terms?
+%
+% Good prompts:
+%   - What failure mode of prior methods motivates this work?
+%   - What would a practitioner lose if this paper had never been written?
+
+
+% ============================================================
+\section{Method}
+% ============================================================
+
+\paragraph{Key idea.}
+% One or two sentences: what is the single most important insight?
+% Use \highlight{} for the central equation or design choice.
+
+\paragraph{Architecture / algorithm.}
+% Describe the model or algorithm clearly.
+% An algorithm2e block or a TikZ architecture diagram goes well here.
+
+% \begin{algorithm2e}[H]
+%   \caption{\TODO{Algorithm name}}
+%   \KwIn{\TODO{inputs}}
+%   \KwOut{\TODO{outputs}}
+%   \TODO{steps}
+% \end{algorithm2e}
+
+\paragraph{Training objective.}
+% State the loss function.
+% \[ \mathcal{L}(\theta) = \TODO{\ldots} \]
+
+\paragraph{Implementation details.}
+% Optimizer, learning rate schedule, batch size, hardware, wall-clock time.
+% Key hyperparameters (and whether they are sensitive).
+
+\begin{itemize}
+  \item \textbf{Optimizer:} \TODO{e.g., \baseline{AdamW}, $\beta_1=0.9$, $\beta_2=0.999$}
+  \item \textbf{LR schedule:} \TODO{e.g., cosine decay, warmup steps}
+  \item \textbf{Hardware:} \TODO{e.g., 8$\times$ A100 80GB, training time}
+\end{itemize}
+
+
+% ============================================================
+\section{Experimental Setup}
+% ============================================================
+
+\paragraph{Datasets.}
+\begin{itemize}
+  \item \dataset{DatasetName} — \TODO{modality, size, task, train/val/test splits}
+\end{itemize}
+
+\paragraph{Baselines.}
+\begin{itemize}
+  \item \model{ModelName} \citep{example2024} — \TODO{brief description; why it is a fair comparison}
+\end{itemize}
+
+\paragraph{Evaluation metrics.}
+\begin{itemize}
+  \item \metric{Metric Name} (\texttt{abbrev.}) — \TODO{what it measures; higher or lower is better}
+\end{itemize}
+
+\paragraph{Reproducibility.}
+% Is code / data released? Are seeds fixed? Are error bars reported?
+\TODO{Code: yes/no. Data: public/private. Seeds: fixed/unreported. Error bars: yes/no.}
+
+
+% ============================================================
+\section{Results}
+% ============================================================
+% Report and interpret the main numbers.
+% Convention: \best{} around best result per column; \better{}/\worse{} for deltas.
+% Use \rowcolor{rowhl} to highlight the proposed method's row.
+
+\begin{table}[h]
+  \centering
+  \caption{\TODO{Task and dataset. What is being compared? Which split?}}
+  \label{tab:main}
+  \begin{tabular}{lcc}
+    \toprule
+    \textbf{Method} & \metric{Metric 1 $\uparrow$} & \metric{Metric 2 $\downarrow$} \\
+    \midrule
+    \model{Baseline 1} \citep{}    & 00.0 & 00.0 \\
+    \model{Baseline 2} \citep{}    & 00.0 & 00.0 \\
+    \midrule
+    \rowcolor{rowhl}
+    \model{This Paper}             & \best{00.0} & \best{00.0} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Key takeaways.}
+\begin{itemize}
+  \item \TODO{Most important number from the main table / figure and what it means.}
+  \item \TODO{Second-most important finding.}
+\end{itemize}
+
+% Add more figures or tables here as needed.
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=0.8\linewidth]{figures/result.pdf}
+%   \caption{\TODO{Caption.}}
+%   \label{fig:result}
+% \end{figure}
+
+
+% ============================================================
+\section{Ablations}
+% ============================================================
+% What does each component contribute?
+% Which design choices matter most and which are incidental?
+% Report the delta from removing / replacing each component.
+
+\begin{itemize}
+  \item \textbf{\TODO{Component A} removed:} \TODO{e.g., \worse{$-$3.1\%} on Metric 1 — large effect}
+  \item \textbf{\TODO{Component B} replaced with simpler version:} \TODO{e.g., negligible change}
+\end{itemize}
+
+% Optionally add an ablation table:
+% \begin{table}[h]
+%   \centering
+%   \caption{Ablation on \dataset{DatasetName}.}
+%   \begin{tabular}{lc}
+%     \toprule
+%     \textbf{Variant} & \metric{Metric $\uparrow$} \\
+%     \midrule
+%     Full model               & \best{00.0} \\
+%     w/o component A          & 00.0 \\
+%     w/o component B          & 00.0 \\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+
+
+% ============================================================
+\section{Limitations \& Failure Modes}
+% ============================================================
+% Where does the method underperform, break, or rely on strong assumptions?
+% What is the compute / data / annotation cost?
+% Are there fairness, robustness, or distribution-shift concerns?
+
+\begin{itemize}
+  \item \TODO{e.g., Requires large-scale pretraining data; unclear how to apply in low-resource settings.}
+  \item \TODO{e.g., Evaluation restricted to English; multilingual performance unknown.}
+\end{itemize}
+
+
+% ============================================================
+\section{Open Questions \& Extensions}
+% ============================================================
+% What natural follow-up experiments would you run?
+% What applications or domains could this transfer to?
+% What would you do differently if you were writing this paper?
+
+\begin{itemize}
+  \item \TODO{}
+\end{itemize}
+
+
+% ============================================================
+\section{Personal Notes}
+% ============================================================
+% Connections to your own research.
+% Intuitions about why the method works.
+% Things to remember or questions to ask the authors.
+
+
+% ============================================================
+% REFERENCES
+% Add entries to refs.bib and cite with \citep{key} or \citet{key}.
+% ============================================================
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\end{document}

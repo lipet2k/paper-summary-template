@@ -1,0 +1,100 @@
+% ============================================================
+% PACKAGES
+% ============================================================
+
+% --- Math ---
+\usepackage{amsfonts}   % \mathbb, \mathfrak fonts
+\usepackage{amsmath}    % Core math environments: align, equation, gather, etc.
+\usepackage{amsthm}     % Theorem/lemma/definition environments
+\usepackage{mathtools}  % Extends amsmath: \coloneqq, \DeclarePairedDelimiter, etc.
+                        % (replaces deprecated commath)
+
+% --- Layout & Typography ---
+\usepackage[margin=1in]{geometry}  % Explicit margin control (replaces fullpage)
+\usepackage{microtype}             % Better text justification, kerning, and spacing
+\usepackage{setspace}              % Line spacing: \singlespacing, \onehalfspacing
+
+% --- Tables ---
+\usepackage{booktabs}   % Professional rules: \toprule, \midrule, \bottomrule
+\usepackage{tabularx}   % Tables with auto-width X columns
+
+% --- Figures ---
+\usepackage{graphicx}   % \includegraphics[width=...]{file}
+\usepackage{subcaption} % Subfigures: \begin{subfigure}[b]{0.45\linewidth}
+\usepackage{wrapfig}    % Inline figures: \begin{wrapfigure}{r}{0.4\linewidth}
+
+% --- Algorithms ---
+% Usage: \begin{algorithm2e}[H] \KwIn{...} \KwOut{...} ... \end{algorithm2e}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+% --- Drawing ---
+\usepackage{tikz}
+\usetikzlibrary{positioning, fit, decorations.pathreplacing, arrows.meta}
+
+% --- Color ---
+\usepackage{xcolor}
+
+% --- References (hyperref second-to-last, cleveref last) ---
+\usepackage[numbers]{natbib}  % Numeric citations: \citep{key}, \citet{key}
+\usepackage{hyperref}         % Clickable links and PDF metadata; load near last
+\usepackage{cleveref}         % Smart cross-refs: \cref{fig:x} -> "Figure 1"
+                              % Must be loaded AFTER hyperref
+
+% ============================================================
+% THEOREM ENVIRONMENTS
+% ============================================================
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}           % Shares counter with theorem
+\newtheorem{claim}[theorem]{Claim}           % Shares counter with theorem
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+\newtheorem{assumption}{Assumption}
+\newtheorem{question}{Question}
+
+% ============================================================
+% MATH MACROS
+% ============================================================
+
+% --- Number sets ---
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% --- Probability & Statistics ---
+\newcommand{\E}{\mathbb{E}}         % Expectation: \E[X], \E_{x \sim p}[f(x)]
+\newcommand{\Prob}{\mathbb{P}}      % Probability: \Prob(A)
+\DeclareMathOperator{\Var}{Var}     % Variance
+\DeclareMathOperator{\Cov}{Cov}    % Covariance
+
+% --- Paired delimiters (star variant auto-scales: \norm*{...}) ---
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}    % \norm{x} or \norm*{\frac{a}{b}}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}      % \abs{x}
+\DeclarePairedDelimiter{\inner}{\langle}{\rangle}  % \inner{x, y}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}     % \ceil{x}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}  % \floor{x}
+
+% --- Common operators ---
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\tr}{tr}      % Trace
+\DeclareMathOperator{\rank}{rank}  % Rank
+\DeclareMathOperator{\diag}{diag}  % Diagonal matrix
+\DeclareMathOperator{\sign}{sign}  % Sign function
+
+% ============================================================
+% UTILITY MACROS
+% ============================================================
+
+% Highlight key claims or definitions in blue
+% Usage: \highlight{This result is central to the proof.}
+\newcommand{\highlight}[1]{\textcolor{blue}{#1}}
+
+% Red bold TODO annotation for gaps while writing
+% Usage: \TODO{Verify this bound holds in the non-convex case.}
+\newcommand{\TODO}[1]{\textcolor{red}{\textbf{TODO: #1}}}

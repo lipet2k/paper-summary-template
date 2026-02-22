@@ -1,0 +1,137 @@
+% ============================================================
+% PACKAGES — Empirical Template
+% (Empirical ML / Applied Computer Science)
+% ============================================================
+
+% --- Math ---
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}     % \newtheorem, \theoremstyle
+\usepackage{mathtools}  % \coloneqq, \DeclarePairedDelimiter, etc.
+
+% --- Layout & Typography ---
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{setspace}
+
+% --- Tables ---
+\usepackage{booktabs}    % \toprule, \midrule, \bottomrule
+\usepackage{tabularx}    % Auto-width X columns
+\usepackage{multirow}    % \multirow{n}{*}{text} — row-spanning cells
+\usepackage{colortbl}    % \rowcolor{}, \cellcolor{} — highlighted rows/cells
+
+% --- Figures ---
+\usepackage{graphicx}
+\usepackage{subcaption}  % subfigures with independent captions
+\usepackage{wrapfig}     % \begin{wrapfigure}{r}{0.4\linewidth}
+
+% --- Plots ---
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{pgfplotstable}   % Load data from .csv / .dat files
+
+% --- Code snippets ---
+\usepackage{listings}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+% --- Numbers & Units ---
+\usepackage{siunitx}
+% Usage: \num{1234567}  ->  1,234,567
+%        \SI{3.14}{GHz}
+%        \SI{90.2}{\percent}
+\sisetup{group-separator={,}, group-minimum-digits=4}
+
+% --- Color ---
+\usepackage{xcolor}
+\definecolor{better}{RGB}{0,128,0}     % green — improvement over baseline
+\definecolor{worse}{RGB}{180,0,0}      % red   — regression
+\definecolor{rowhl}{RGB}{235,245,255}  % light blue — highlighted table row
+
+% --- Drawing ---
+\usepackage{tikz}
+\usetikzlibrary{positioning, fit, decorations.pathreplacing, arrows.meta}
+
+% --- References (hyperref second-to-last, cleveref last) ---
+\usepackage[numbers]{natbib}  % \citep{key}, \citet{key}
+\usepackage{hyperref}
+\usepackage{cleveref}         % \cref{fig:x} -> "Figure 1"; load AFTER hyperref
+
+% ============================================================
+% LISTINGS STYLE — Python / shell code snippets
+% ============================================================
+\lstset{
+  language=Python,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray}\itshape,
+  stringstyle=\color{orange!80!black},
+  showstringspaces=false,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  xleftmargin=1.5em,
+}
+
+% ============================================================
+% THEOREM-LIKE ENVIRONMENTS
+% (lighter set than theory template — empirical papers rarely need proofs)
+% ============================================================
+
+\newtheorem{observation}{Observation}
+\newtheorem{proposition}{Proposition}
+\newtheorem{claim}{Claim}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+% ============================================================
+% MATH MACROS
+% ============================================================
+
+% --- Number sets ---
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+% --- Probability ---
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+
+% --- Paired delimiters ---
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
+% --- Common operators ---
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\softmax}{softmax}
+
+% ============================================================
+% UTILITY MACROS
+% ============================================================
+
+% Blue highlight for key ideas or equations
+\newcommand{\highlight}[1]{\textcolor{blue}{#1}}
+
+% Red bold TODO annotation
+\newcommand{\TODO}[1]{\textcolor{red}{\textbf{TODO: #1}}}
+
+% ---- Result comparison annotations ----
+% Usage in prose: "improves by \better{+2.3\%} over the baseline"
+\newcommand{\better}[1]{\textcolor{better}{$\uparrow$\,#1}}
+\newcommand{\worse}[1]{\textcolor{worse}{$\downarrow$\,#1}}
+
+% ---- Formatted names (consistent typography) ----
+\newcommand{\dataset}[1]{\textsc{#1}}   % \dataset{ImageNet}  ->  IMAGENET (small-caps)
+\newcommand{\model}[1]{\textsc{#1}}     % \model{ViT-B/16}
+\newcommand{\baseline}[1]{\texttt{#1}}  % \baseline{Adam}     ->  monospace
+\newcommand{\metric}[1]{\textit{#1}}    % \metric{Top-1 Acc.} ->  italic
+
+% Bold best result in a table cell
+\newcommand{\best}[1]{\textbf{#1}}
+
+% State-of-the-art tag
+\newcommand{\sota}{\textbf{SotA}}
